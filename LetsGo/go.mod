@@ -1,4 +1,4 @@
-module github.com/park-hg/proglog/LetsGo
+module github.com/park-hg/proglog
 
 go 1.20
 

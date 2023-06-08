@@ -1,4 +1,4 @@
-module github.com/park-hg/proglog/StructureDataWithProtobuf
+module github.com/park-hg/proglog
 
 go 1.20
 

@@ -5,7 +5,7 @@ import (
 	"os"
 	"path"
 
-	log_v1 "github.com/park-hg/proglog/StructureDataWithProtobuf/api/v1"
+	log_v1 "github.com/park-hg/proglog/api/v1"
 )
 
 type segment struct {
@@ -51,6 +51,6 @@ func newSegment(dir string, baseOffset uint64, c Config) (*segment, error) {
 	return s, nil
 }
 
-func (s segment) Append(record *log_v1.Record) (offset uint64, err error) {
+func (s segment) Append() (offset uint64, err error) {
 
 }
