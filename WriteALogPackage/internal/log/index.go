@@ -52,7 +52,7 @@ func (i *index) Close() error {
 
 func (i *index) Read(in int64) (out uint32, pos uint64, err error) {
 	if i.size == 0 {
-		return 0, 0, err
+		return 0, 0, io.EOF
 	}
 	if in == -1 {
 		out = uint32((i.size / entWidth) - 1)
