@@ -1,6 +1,7 @@
 package log
 
 import (
+	"io"
 	"os"
 	"testing"
 
@@ -19,10 +20,10 @@ func TestIndex(t *testing.T) {
 	_, _, err = idx.Read(-1)
 	require.Error(t, err)
 	require.Equal(t, f.Name(), idx.file.Name())
-	entries := []struct{
+	entries := []struct {
 		Off uint32
 		Pos uint64
-	} {
+	}{
 		{Off: 0, Pos: 0},
 		{Off: 1, Pos: 10},
 	}
@@ -37,7 +38,7 @@ func TestIndex(t *testing.T) {
 	}
 
 	_, _, err = idx.Read(int64(len(entries)))
-	require.Error(t, err)
+	require.Error(t, io.EOF, err)
 	_ = idx.Close()
 
 	f, _ = os.OpenFile(f.Name(), os.O_RDWR, 0600)
